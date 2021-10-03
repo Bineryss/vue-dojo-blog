@@ -2,7 +2,7 @@
 	<div class="home">
 		<h1>Home</h1>
 		<div v-if="posts.length">
-			<PostList :posts="posts"/>
+			<PostList :posts="posts" />
 		</div>
 		<div v-else-if="error">{{ error }}</div>
 		<div v-else>
@@ -21,6 +21,7 @@ export default {
 	setup() {
 		const { posts, error, load } = getPosts()
 		load()
+
 		return { posts, error }
 	},
 }
