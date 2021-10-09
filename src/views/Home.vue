@@ -1,28 +1,36 @@
 <template>
-	<div class="home">
-		<h1>Home</h1>
-		<div v-if="posts.length">
-			<PostList :posts="posts" />
-		</div>
-		<div v-else-if="error">{{ error }}</div>
-		<div v-else>
-			Loading...
-		</div>
-	</div>
+  <div class="home">
+    <h1>Home</h1>
+    <div v-if="posts.length">
+      <PostList :posts="posts"/>
+    </div>
+    <div v-else-if="error">{{ error }}</div>
+    <div v-else>
+      <Spinner/>
+    </div>
+  </div>
 </template>
 
 <script>
 import PostList from '../components/PostList.vue'
-import getPosts from '../composables/getPosts'
+import getPosts from '../hook/getPosts'
+import Spinner from "../components/Spinner";
 
 export default {
-	name: 'Home',
-	components: { PostList },
-	setup() {
-		const { posts, error, load } = getPosts()
-		load()
+  name: 'Home',
+  components: {Spinner, PostList},
+  setup() {
+    const {posts, error, load} = getPosts()
+    load()
 
-		return { posts, error }
-	},
+    return {posts, error}
+  },
 }
 </script>
+<style>
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+</style>
