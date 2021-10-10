@@ -1,13 +1,9 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <div v-if="posts.length">
+    <Loader :condition="posts.length" :error="error">
       <PostList :posts="posts"/>
-    </div>
-    <div v-else-if="error">{{ error }}</div>
-    <div v-else>
-      <Spinner/>
-    </div>
+    </Loader>
   </div>
 </template>
 
@@ -15,10 +11,11 @@
 import PostList from '../components/PostList.vue'
 import getPosts from '../hook/getPosts'
 import Spinner from "../components/Spinner";
+import Loader from "@/components/Loader";
 
 export default {
   name: 'Home',
-  components: {Spinner, PostList},
+  components: {Loader, Spinner, PostList},
   setup() {
     const {posts, error, load} = getPosts()
     load()

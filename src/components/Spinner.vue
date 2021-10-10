@@ -1,6 +1,8 @@
 <template>
-  <div class="spin"/>
-  <p> Loading...</p>
+  <div class="container">
+    <div class="spin"/>
+    <p> Loading...</p>
+  </div>
 </template>
 
 <script>
@@ -10,6 +12,11 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  display: grid;
+  place-items: center;
+}
+
 .spin {
   display: block;
   width: 40px;
