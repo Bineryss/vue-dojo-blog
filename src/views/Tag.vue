@@ -1,7 +1,11 @@
 <template>
-  <div class="tag">
+  <div class="home">
+    <h1>Tags</h1>
     <Loader :condition="postsWithTag.length" :error="error">
-      <PostList :posts="postsWithTag"/>
+      <div class="layout">
+        <PostList :posts="postsWithTag"/>
+        <TagCloud :posts="posts"/>
+      </div>
     </Loader>
   </div>
 </template>
@@ -13,10 +17,11 @@ import PostList from "@/components/PostList";
 import Spinner from "@/components/Spinner";
 import getPosts from "@/hook/getPosts";
 import Loader from "@/components/Loader";
+import TagCloud from "@/components/TagCloud";
 
 export default {
   name: "Tag",
-  components: {Loader, Spinner, PostList},
+  components: {TagCloud, Loader, Spinner, PostList},
   setup: function () {
     const {posts, error, load} = getPosts()
     load()
@@ -30,12 +35,12 @@ export default {
 
     return {
       error,
+      posts,
       postsWithTag
     }
   }
 }
 </script>
-
-<style scoped>
+<style>
 
 </style>
