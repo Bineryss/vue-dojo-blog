@@ -38,6 +38,7 @@ export default {
     const handleKeyDown = () => {
       if (!tags.value.includes(tag.value)) {
         tag.value = tag.value.trim()
+        tag.value = tag.value.replace(/\s/, '-')
         tags.value.push(tag.value)
       }
       tag.value = ''
@@ -101,16 +102,6 @@ label::before {
   padding-right: 40px;
   left: -30px;
   transform: rotateZ(-1.5deg);
-}
-
-button {
-  display: block;
-  margin-top: 30px;
-  background: #ff8800;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  font-size: 18px
 }
 
 .pill {

@@ -5,6 +5,7 @@
 
 <script>
 import Navbar from "@/components/Navbar";
+import '@/assets/global.css'
 
 export default {
   components: {Navbar}

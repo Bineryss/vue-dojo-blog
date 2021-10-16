@@ -1,3 +1,5 @@
+import {projectFirestore} from "@/firebase/config";
+
 const {ref} = require("vue");
 
 const createPost = () => {
@@ -11,13 +13,9 @@ const createPost = () => {
         }
 
         try {
-            await fetch('http://localhost:3000/posts', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(post)
-
-            })
-        } catch (err) {
+            await projectFirestore.collection('posts').add(post)
+        } catch
+            (err) {
             error.value = err
         }
     }

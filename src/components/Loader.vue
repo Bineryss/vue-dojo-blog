@@ -2,7 +2,9 @@
   <div v-if="condition">
     <slot/>
   </div>
-  <div v-else-if="error">{{ error }}</div>
+  <div class="error" v-else-if="error">
+    <h2> {{ error }}</h2>
+  </div>
   <div v-else>
     <Spinner/>
   </div>
@@ -19,5 +21,8 @@ export default {
 </script>
 
 <style scoped>
-
+.error {
+  max-width: 800px;
+  margin: 0 auto;
+}
 </style>
