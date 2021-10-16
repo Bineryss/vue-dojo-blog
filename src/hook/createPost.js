@@ -1,4 +1,4 @@
-import {projectFirestore} from "@/firebase/config";
+import {projectFirestore, timestamp} from "@/firebase/config";
 
 const {ref} = require("vue");
 
@@ -9,7 +9,8 @@ const createPost = () => {
         const post = {
             title: title,
             body: body,
-            tags: tags
+            tags: tags,
+            createdAt: timestamp()
         }
 
         try {
