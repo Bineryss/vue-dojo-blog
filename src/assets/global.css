@@ -1,7 +1,11 @@
+:root {
+    --primary-color: #0095ff;
+}
+
 button {
     display: block;
     margin-top: 30px;
-    background: #ff8800;
+    background: var(--primary-color);
     color: white;
     border: none;
     padding: 8px 16px;

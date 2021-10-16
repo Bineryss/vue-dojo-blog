@@ -45,7 +45,7 @@ export default {
   display: block;
   width: 100%;
   height: 100%;
-  background: #ff8800;
+  background: var(--primary-color);
   position: absolute;
   z-index: -1;
   padding-right: 40px;

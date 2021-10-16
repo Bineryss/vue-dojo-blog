@@ -47,7 +47,7 @@ export default {
 }
 
 .tag-cloud a.router-link-active {
-  color: #ff8800;
+  color: var(--primary-color);
   font-weight: bold;
 }
 </style>
